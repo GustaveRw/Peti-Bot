@@ -3,21 +3,22 @@ import axios from "axios";
 
 const handleSubmit = (event) => {
   event.preventDefault();
-
   const userInput = event.target.userInput.value;
   const srcLanguage = event.target.srcLanguage.value;
   const destLanguage = event.target.destLanguage.value;
 
   axios
-    .post("http://localhost:5000/chat", {
+    .post("http://127.0.0.1:5000/chat", {
       user_input: userInput,
       src_language: srcLanguage,
       dest_language: destLanguage,
     })
     .then((response) => {
+      console.log(response);
       // Update chat messages with response from server
     })
     .catch((error) => {
+      console.log(error);
       // Handle error
     });
 };
